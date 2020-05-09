@@ -2,6 +2,7 @@ package com.actitime.generic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Reporter;
@@ -12,6 +13,7 @@ public class BrowserFactory {
 	public static WebDriver launchBrowser(String browserName, String baseUrl) {
 		if(browserName.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "./exe/chromedriver.exe");
+			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 			driver=new ChromeDriver();
 			Reporter.log("Chrome Browser Launch", true);
 		}
